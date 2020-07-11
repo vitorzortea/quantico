@@ -1,0 +1,109 @@
+h1
+  width 100%
+  margin-bottom 20px
+
+#button-goole
+  display flex
+  align-items center
+  padding 10px
+  border solid 1px #a6a6a6
+  background-color white
+  border-radius 20px
+  width 300px
+  max-width 100%
+  cursor pointer
+  box-shadow 2px 2px 5px 0 rgba(0,0,0,0.2)
+
+  img
+    width 30px
+    border-right solid 1px #a6a6a6
+    padding-right 10px
+    margin-right 10px
+
+  p
+    color #005a9b
+    width max-content
+    max-width 100%
+    padding-right 10px
+
+  &:hover
+    border-color #005a9b
+
+.regua
+  display flex
+  align-items center
+  width 100%
+  color #fbbe03
+  margin 20px 0
+
+  &:before, &:after
+    content ''
+    display table
+    flex auto
+    height 1px
+    margin 0 10px
+    background #fbbe03
+
+section
+  padding 0 0 20px
+  border-bottom 1px #00FAFF dashed
+  margin-bottom 20px
+
+  span.input-icon
+      border solid 1px #00FDFD
+      border-radius 20px
+      margin-bottom 20px
+      margin 10px 0
+      color white
+      position relative
+      display table
+      width 300px
+      max-width 100%
+      overflow hidden
+
+      i
+        position absolute
+        left 10px
+        top 50%
+        transform translate(0, -50%)
+
+      input
+        width 100%
+        background transparent
+        padding 10px
+        padding-left 2em
+
+        &::placeholder
+          color white
+
+
+  button
+    width 100%
+    border none
+    cursor pointer
+    padding 10px
+    text-align center
+    color #111470
+    font-size 1.2em
+    font-weight bold
+    background-color #00FAFF
+    margin-top 20px
+    border-radius 20px
+
+    &:hover
+      background-color #fbbe03
+
+  a
+    color #00FAFF
+    font-size 0.8em
+    text-decoration underline
+    cursor pointer
+
+.cadastrar
+  color #00FAFF
+  font-size 1.2em
+  text-decoration underline
+  display table
+  margin 0 auto
+  cursor pointer
+
