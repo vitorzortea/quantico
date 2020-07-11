@@ -1,0 +1,107 @@
+#autenticacao
+  display flex
+  width 100%
+  min-height 100vh
+  align-items center
+  justify-content space-between
+  overflow hidden
+  background radial-gradient(47.68% 67.25% at 72.89% 51.9%, #2933BC 0%, #111470 100%), #FFFFFF
+
+  &>div
+    width 50%
+    min-height 100vh
+    position relative
+
+    &>#server-img
+      position absolute
+      width 600px
+      max-width 100%
+      top 50%
+      left 50%
+      opacity 0
+      z-index 3
+      animation start_server 2s forwards
+      animation-delay 0.6s
+
+      img
+        position absolute
+        top 50%
+        left 50%
+        transform translate(-50%, -50%)
+
+      #bloco-light
+        z-index 4
+        animation move_server 2s infinite, opacity_server 4s infinite
+
+      #bloco-2
+        z-index 3
+        animation move_server 2s infinite
+
+      #bloco-1
+        z-index 2
+        animation move_server 2s infinite
+        animation-delay 0.5s
+
+      #base
+        z-index 1
+        animation move_base_server 2s infinite
+
+      #light-way-1
+        animation opacity_server 5s infinite
+        opacity 0
+
+      #light-way-2
+        animation opacity_server 5s infinite
+        animation-delay 1s
+        opacity 0
+
+      #light-way-3
+        animation opacity_server 5s infinite
+        animation-delay 2s
+        opacity 0
+
+  &>main
+    width 50%
+
+    &>div
+      display table
+      margin 0 auto
+      padding 20px
+
+
+@keyframes start_server
+  0%
+    transform translate(-50%, calc( -50% - 20px))
+    opacity 0
+  100%
+    transform translate(-50%, -50%)
+    opacity 1
+
+
+@keyframes move_server
+  0%
+    transform translate(-50%, -50%)
+  50%
+    transform translate(-50%, calc( -50% + 10px))
+  100%
+    transform translate(-50%, -50%)
+
+
+@keyframes move_base_server
+  0%
+    transform translate(-50%, -50%)
+  50%
+    transform translate(-50%, calc( -50% - 10px))
+  100%
+    transform translate(-50%, -50%)
+
+
+@keyframes opacity_server
+  0%
+    opacity 0
+  50%
+    opacity 1
+  100%
+    opacity 0
+
+
