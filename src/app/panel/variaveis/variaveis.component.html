@@ -11,12 +11,30 @@
   <section id="filter">
     <div>
       <button><i class="fas fa-filter"></i></button>
-      <span>Filtro <i class="fas fa-times"></i></span>
-      <p>Limpar Filtro</p>
+      <mat-chip-list #chipList>
+        <mat-chip *ngFor="let item of problemasSelect" >
+          {{item}} <mat-icon matChipRemove (click)="deleteChip(item, 1)">cancel</mat-icon>
+        </mat-chip>
+        <mat-chip *ngFor="let item of tipoSelect" >
+          {{item}} <mat-icon matChipRemove (click)="deleteChip(item, 2)">cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+      <p (click)="deleteAllChips()" id="clear">Limpar Filtro</p>
     </div>
     <div class="menu-filter">
-      <form>
-        Por Problema
+      <form [formGroup]="formFilter">
+        <mat-form-field appearance="fill">
+          <mat-label>Por Problemas</mat-label>
+          <mat-select formControlName="problemas" multiple (selectionChange)="editChip(1)">
+            <mat-option *ngFor="let problema of problamaLista" [value]="problema">{{problema}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Por tipo de variável</mat-label>
+          <mat-select formControlName="tipoVars" multiple (selectionChange)="editChip(2)">
+            <mat-option *ngFor="let tipoVar of tipoVarList" [value]="tipoVar">{{tipoVar}}</mat-option>
+          </mat-select>
+        </mat-form-field>
       </form>
     </div>
   </section>
