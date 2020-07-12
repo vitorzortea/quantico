@@ -41,7 +41,7 @@ export class VariaveisComponent implements OnInit {
     { variavel: 'Variável 21', tipo: 'Tipo 2', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
     { variavel: 'Variável 22', tipo: 'Tipo 1', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
     { variavel: 'Variável 23', tipo: 'Tipo 3', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-  ]
+  ];
 
   constructor(
     private fb: FormBuilder,
