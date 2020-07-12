@@ -1,30 +1,111 @@
+/* == input == */
 ::ng-deep
   .mat-form-field .mat-form-field-flex
     background-color transparent
 
   .mat-form-field-appearance-fill .mat-form-field-underline::before
     background-color #15187B
-  .mat-form-field-appearance-fill .mat-form-field-infix
-      padding: 0 0 .5em 0
 
 
-#filter >div:first-child
-    display: flex
-    align-items: center
+#user-tools
+    display flex
+    justify-content space-between
 
-    button
-      padding 10px 10px 10px 0
-      color #15187B
-      font-size 18px
+  #filter
+    position relative
 
-    .mat-chip.mat-standard-chip
-      background-color #67b5e5
-      color white
-      border-radius 8.5px
+    &>div:first-child
+      display: inline-flex
+      align-items: center
+      padding: 5px 10px
+      position relative
+      z-index 2
+
+      &.chip-select
+        background #f5f8ff
+        border-radius 10px
+
+      button
+        color #15187B
+        font-size 18px
+        display: flex
+        width: 35px
+        height: 35px
+        padding: 4px 0 0
+        align-items: center
+        justify-content: center
+        border-radius 50%
+        margin-right 10px
+
+        &.active, &:hover
+          cursor pointer
+          background #67b5e5
+          box-shadow 1px 1px 2px rgba(26, 30, 137, 0.2)
+
+      .mat-chip.mat-standard-chip
+        background-color #67b5e5
+        color white
+        border-radius 8.5px
+        font-size 14px
+
+      #clear
+        color #15187B
+        text-decoration underline
+        font-size: 12px
+        margin-left 10px
+        min-width: 70px
+        cursor pointer
+
+    .menu-filter
+      position absolute
+      left -20px
+      bottom 20px
+      z-index 0
+      opacity 0
+      transform translate(0, 100%) scale(0.001)
+      background white
+      padding 20px
+      box-shadow 0px -3px 10px 5px rgba(26, 30, 137, 0.2)
+      border-radius 10px
+      transition 0.5s opacity, 0.5s bottom
+
+      &.active
+        bottom 0
+        z-index 100
+        opacity 1
+        transform translate(0, 100%) scale(1)
+
+
+      &>span
+        display table
+        position absolute
+        top 0
+        left 38px
+        width 15px
+        height 15px
+        -webkit-transform translate(0, -50%) rotate(45deg)
+        transform translate(0, -50%) rotate(45deg)
+        background #fff
+
+  #tools-table
+    flex auto
+    text-align right
+
+    &>*
+      display inline-table
+      vertical-align middle
+      margin 10px
+
+      &:last-child
+        margin-right 0
+
+    &>p
       font-size 14px
-
-    #clear
       color #15187B
-      text-decoration underline
-      font-size: 12px
-      margin-left 10px
+
+    &>button
+      background-color #26B266
+      border-radius 5px
+      padding: 8px 25px
+      color white
+      cursor pointer

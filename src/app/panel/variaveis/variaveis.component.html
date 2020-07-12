@@ -7,35 +7,74 @@
     <span><i class="fas fa-user-circle"></i> Fulano de tal</span><a>Sair</a>
   </div>
 </header>
-<main>
-  <section id="filter">
-    <div>
-      <button><i class="fas fa-filter"></i></button>
-      <mat-chip-list #chipList>
-        <mat-chip *ngFor="let item of problemasSelect" >
-          {{item}} <mat-icon matChipRemove (click)="deleteChip(item, 1)">cancel</mat-icon>
-        </mat-chip>
-        <mat-chip *ngFor="let item of tipoSelect" >
-          {{item}} <mat-icon matChipRemove (click)="deleteChip(item, 2)">cancel</mat-icon>
-        </mat-chip>
-      </mat-chip-list>
-      <p (click)="deleteAllChips()" id="clear">Limpar Filtro</p>
+<main class="box-white">
+  <section id="user-tools">
+    <div id="filter">
+      <div [ngClass]="{'chip-select': chipSelect}">
+        <button id="active-menu-filter" (click)="toggleFilter()"><i class="fas fa-filter"></i></button>
+        <mat-chip-list #chipList>
+          <mat-chip *ngFor="let item of problemasSelect" >
+            {{item}} <mat-icon matChipRemove (click)="deleteChip(item, 1)">cancel</mat-icon>
+          </mat-chip>
+          <mat-chip *ngFor="let item of tipoSelect" >
+            {{item}} <mat-icon matChipRemove (click)="deleteChip(item, 2)">cancel</mat-icon>
+          </mat-chip>
+        </mat-chip-list>
+        <p (click)="deleteAllChips()" id="clear" *ngIf="chipSelect">Limpar Filtro</p>
+      </div>
+      <div class="menu-filter">
+        <span></span>
+        <form [formGroup]="formFilter">
+          <section class="grup-form">
+            <mat-form-field appearance="fill">
+              <mat-label class="label-quantico">Por Problemas</mat-label>
+              <mat-select formControlName="problemas" multiple (selectionChange)="editChip(1)">
+                <mat-option *ngFor="let problema of problamaLista" [value]="problema">{{problema}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </section>
+          <section class="grup-form">
+            <mat-form-field appearance="fill">
+              <mat-label class="label-quantico">Por tipo de variável</mat-label>
+              <mat-select formControlName="tipoVars" multiple (selectionChange)="editChip(2)">
+                <mat-option *ngFor="let tipoVar of tipoVarList" [value]="tipoVar">{{tipoVar}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </section>
+          <section class="type-cadastro">
+            <mat-label class="label-quantico label-line">Cadastro</mat-label>
+            <mat-checkbox class="example-margin">Positivo</mat-checkbox>
+            <mat-checkbox class="example-margin">Negativo</mat-checkbox>
+          </section>
+        </form>
+      </div>
     </div>
-    <div class="menu-filter">
-      <form [formGroup]="formFilter">
-        <mat-form-field appearance="fill">
-          <mat-label>Por Problemas</mat-label>
-          <mat-select formControlName="problemas" multiple (selectionChange)="editChip(1)">
-            <mat-option *ngFor="let problema of problamaLista" [value]="problema">{{problema}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Por tipo de variável</mat-label>
-          <mat-select formControlName="tipoVars" multiple (selectionChange)="editChip(2)">
-            <mat-option *ngFor="let tipoVar of tipoVarList" [value]="tipoVar">{{tipoVar}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </form>
+    <div id="tools-table">
+      <p>Variáveis Selecionadas 0</p>
+      <button>Exportar Variaveis <i class="fal fa-file-csv"></i></button>
     </div>
+  </section>
+  <section id="table">
+    <table>
+      <table>
+        <tr>
+          <th><mat-checkbox id="select-all"></mat-checkbox></th>
+          <th>Variável</th>
+          <th>Tipo</th>
+          <th>Relevância</th>
+          <th>Descrição</th>
+          <th>Analizar</th>
+        </tr>
+        <tr *ngFor="let item of arrayVariaveis">
+          <td><mat-checkbox class="select-item"></mat-checkbox></td>
+          <td>{{item?.variavel}}</td>
+          <td>{{item?.tipo}}</td>
+          <td>{{item?.relevancia}}</td>
+          <td>{{item?.descricao}}</td>
+          <td><a>Analizar</a></td>
+        </tr>
+
+      </table>
+    </table>
   </section>
 </main>
