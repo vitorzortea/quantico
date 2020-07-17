@@ -1,7 +1,7 @@
 
 {
   "variaveis": [
-    { "variavel": "Variável 1", "tipo": "Tipo 1", "relevancia": "Relevância", "descricao": "Lorem ipsum dolor."},
+    { "variavel": "API Variável 1", "tipo": "Tipo 1", "relevancia": "Relevância", "descricao": "Lorem ipsum dolor."},
     { "variavel": "Variável 2", "tipo": "Tipo 2", "relevancia": "Relevância", "descricao": "Lorem ipsum dolor."},
     { "variavel": "Variável 3", "tipo": "Tipo 3", "relevancia": "Relevância", "descricao": "Lorem ipsum dolor."},
     { "variavel": "Variável 4", "tipo": "Tipo 4", "relevancia": "Relevância", "descricao": "Lorem ipsum dolor."},

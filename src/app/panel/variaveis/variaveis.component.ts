@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { VariaveisService } from 'src/app/services/variaveis.service';
 
 
 @Component({
@@ -17,34 +18,11 @@ export class VariaveisComponent implements OnInit {
   chipSelect = false;
   activeFilter = false;
 
-  arrayVariaveis = [
-    { variavel: 'Variável 1', tipo: 'Tipo 1', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 2', tipo: 'Tipo 2', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 3', tipo: 'Tipo 3', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 4', tipo: 'Tipo 4', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 5', tipo: 'Tipo 5', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 6', tipo: 'Tipo 6', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 7', tipo: 'Tipo 1', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 8', tipo: 'Tipo 3', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 9', tipo: 'Tipo 2', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 10', tipo: 'Tipo 4', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 11', tipo: 'Tipo 5', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 12', tipo: 'Tipo 6', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 13', tipo: 'Tipo 2', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 14', tipo: 'Tipo 4', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 15', tipo: 'Tipo 3', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 16', tipo: 'Tipo 2', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 17', tipo: 'Tipo 5', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 18', tipo: 'Tipo 6', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 19', tipo: 'Tipo 3', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 20', tipo: 'Tipo 4', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 21', tipo: 'Tipo 2', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 22', tipo: 'Tipo 1', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-    { variavel: 'Variável 23', tipo: 'Tipo 3', relevancia: 'Relevância', descricao: 'Lorem ipsum dolor.'},
-  ];
+  arrayVariaveis: any;
 
   constructor(
     private fb: FormBuilder,
+    public variaveisService: VariaveisService
   ) { }
 
   ngOnInit() {
@@ -52,6 +30,7 @@ export class VariaveisComponent implements OnInit {
       problemas: new FormControl(''),
       tipoVars: new FormControl(''),
     });
+    this.variaveisService.getVariavel();
   }
   toggleFilter() {
     document.querySelectorAll('.menu-filter')[0].classList.toggle('active');

@@ -26,14 +26,16 @@
       <div class="menu-filter">
         <span></span>
         <form [formGroup]="formFilter">
-          <section class="grup-form">
-            <mat-form-field appearance="fill">
-              <mat-label class="label-quantico">Por Problemas</mat-label>
-              <mat-select formControlName="problemas" multiple (selectionChange)="editChip(1)">
-                <mat-option *ngFor="let problema of problamaLista" [value]="problema">{{problema}}</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </section>
+          <!--
+            <section class="grup-form">
+              <mat-form-field appearance="fill">
+                <mat-label class="label-quantico">Por Problemas</mat-label>
+                <mat-select formControlName="problemas" multiple (selectionChange)="editChip(1)">
+                  <mat-option *ngFor="let problema of problamaLista" [value]="problema">{{problema}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </section>
+          -->
           <section class="grup-form">
             <mat-form-field appearance="fill">
               <mat-label class="label-quantico">Por tipo de variável</mat-label>
@@ -66,7 +68,7 @@
           <th>Descrição</th>
           <th>Analizar</th>
         </tr>
-        <tr *ngFor="let item of arrayVariaveis">
+        <tr *ngFor="let item of variaveisService.variaveis">
           <td><mat-checkbox class="select-item"></mat-checkbox></td>
           <td>{{item?.variavel}}</td>
           <td>{{item?.tipo}}</td>
