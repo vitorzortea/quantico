@@ -61,20 +61,18 @@
     <table>
       <table>
         <tr>
-          <th><mat-checkbox id="select-all"></mat-checkbox></th>
+          <th><mat-checkbox id="select-all" (click)="selectAll()"></mat-checkbox></th>
           <th>Variável</th>
           <th>Tipo</th>
           <th>Relevância</th>
-          <th>Descrição</th>
-          <th>Analizar</th>
+          <th>Status</th>
         </tr>
-        <tr *ngFor="let item of variaveisService.variaveis">
-          <td><mat-checkbox class="select-item"></mat-checkbox></td>
-          <td>{{item?.variavel}}</td>
+        <tr *ngFor="let item of variaveisView">
+          <td><div class="select" (click)="selectVariavel(item)"></div><mat-checkbox class="select-item"  [checked]="item.select"></mat-checkbox></td>
+          <td>{{item?.nome}}</td>
+          <td>{{item?.pessoa}}</td>
           <td>{{item?.tipo}}</td>
-          <td>{{item?.relevancia}}</td>
-          <td>{{item?.descricao}}</td>
-          <td><a>Analizar</a></td>
+          <td>{{item?.status}}</td>
         </tr>
 
       </table>

@@ -17,9 +17,6 @@ export class VariaveisService {
   }
 
   getVariavel() {
-    this.getAPI(`http://localhost:3000/variaveis`).subscribe(
-      (res) => { this.variaveis = res; },
-      (error) => console.log(error)
-    );
+    return this.getAPI(`http://localhost:3000/variaveis`)
   }
 }
