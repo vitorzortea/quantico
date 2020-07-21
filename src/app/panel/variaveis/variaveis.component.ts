@@ -139,13 +139,10 @@ export class VariaveisComponent implements OnInit {
     console.log(this.variaveisCSV);
   }
 
-  /*
-    download(fileName: string, index?: number) {
-      const docSelect = (index || index === 0) ? this.singleDownload[index].csv : this.allDownload.csv.join('\n \n');
-      // const docSelect = this.singleDownload[0].csv;
-      const blob = new Blob([docSelect], { type: 'text/csv' });
+  download() {
+      const blob = new Blob([this.variaveisCSV], { type: 'text/csv' });
       const a = document.createElement('a');
-      a.download = `${fileName}.csv`;
+      a.download = `variaveis.csv`;
       a.href = window.URL.createObjectURL(blob);
       a.dataset.downloadurl = ['text/csv', a.download, a.href].join(':');
 
@@ -155,6 +152,5 @@ export class VariaveisComponent implements OnInit {
       document.body.removeChild(a);
       setTimeout(() => window.URL.revokeObjectURL(a.href), 1500);
     }
-  */
 
 }
