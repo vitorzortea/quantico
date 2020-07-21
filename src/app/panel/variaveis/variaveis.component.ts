@@ -20,6 +20,7 @@ export class VariaveisComponent implements OnInit {
   variaveis: any;
   variaveisView: any;
   variaveisCSV: string;
+  lengthSelect = 0;
 
   arrayVariaveis: any;
 
@@ -112,8 +113,8 @@ export class VariaveisComponent implements OnInit {
       this.variaveisCSV = '';
     } else {
       this.variaveisView.map(e => e.select = true);
-      this.gerarCSV();
     }
+    this.gerarCSV();
   }
   selectVariavel(item) {
     item.select = !item.select;
@@ -121,11 +122,13 @@ export class VariaveisComponent implements OnInit {
   }
 
   gerarCSV() {
+    this.lengthSelect = 0;
     let vazio = false;
     this.variaveisCSV = 'Variável,Tipo,Relevância,Status';
 
     this.variaveisView.forEach(e => {
       if (e.select) {
+        this.lengthSelect++;
         vazio = true;
         this.variaveisCSV += `\n${e.nome},${e.pessoa},${e.status},${e.tipo}`;
       }
